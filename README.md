@@ -37,12 +37,29 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-----
-<!-- 
+---
+
+<!--
 Iconos: npm install react-icons https://react-icons.github.io/react-icons
 Global states for the navbar: npm install recoil    https://recoiljs.org/docs/introduction/getting-started
+Firebase: backend service that allows us to create fullstack applications quickly and easy :)
+    https://firebase.google.com/ => Go to console => Create project
+    npm install firebase
+React Firebase Hooks: npm i react-firebase-hooks
+    documentation in: https://github.com/csfrequency/react-firebase-hooks README
+    authentication Hooks: https://github.com/CSFrequency/react-firebase-hooks/tree/master/auth
+        We used:
+            useCreateUserWithEmailAndPassword,
+            useSignInWithEmailAndPassword,
+            useSignOut,
+            useSendPasswordResetEmail
 
-
-
-
+react-youtube: npm i react-youtube
+Alerts = React-Toastify: npm i react-toastify
+    Se debe importar en _app.tsx:
+        import { ToastContainer, toast } from 'react-toastify';
+        import 'react-toastify/dist/ReactToastify.css';
+    return (
+     <ToastContainer />
+    )
  -->
