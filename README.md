@@ -62,4 +62,31 @@ Alerts = React-Toastify: npm i react-toastify
     return (
      <ToastContainer />
     )
+
+resize problems windows: npm i react-split
+    https://split.js.org/
+
+Code Editor: uiw/react-codemirror: npm i @uiw/react-codemirror
+    VSCode Theme: @uiw/codemirror-theme-vscode
+    JS Language support: @codemirror/lang-javascript
+
+Assert: npm i assert
+    used to compare the f(x) the user passed-in with the correct answer.
+
+Add data to Firestore Database: Add a document
+https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
+    we want to generate de document id, so we used the setDoc() method.
+    en handleSubmit:
+        await setDoc(doc(<ourFirestoreDB>, <collectionName>, <IdAssignedInForm>), data);
+
+To Create Loading Skeletons with TailwindCSS: https://flowbite.com/docs/components/skeleton/
+
+Get Data From FireStore: Get multiple documents from a collection (with modifications)
+https://firebase.google.com/docs/firestore/query-data/get-data#get_multiple_documents_from_a_collection
+    en useEffect para hacer el fetch:
+        const q = query(collection(<ourFirestoreDB>, <collectionName>), orderBy(<howIWantToOrder>, "asc");
+            The Data I'm looking for is in docs(anAarrayOfDocumentsInTheCollection).
+                Inside each document (array position), data>value>mapValue>fields
+                    doc.data() retrieves the Data I need.
+Get Data From Firestore: Get a document (for each problem)
  -->

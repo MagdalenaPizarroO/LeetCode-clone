@@ -5,20 +5,28 @@ import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { javascript } from "@codemirror/lang-javascript";
 import EditorFooter from "./EditorFooter";
+import { LocalProblem } from "@/utils/types/problem";
 
-type PlaygroundProps = {};
+type PlaygroundProps = {
+  problem: LocalProblem;
+};
 
-const Playground: React.FC<PlaygroundProps> = () => {
+const Playground: React.FC<PlaygroundProps> = ({ problem }) => {
   const boilerPlate = `function twoSum(nums, target) {
         // Write your code here
-    };`;
+      };`;
 
   return (
     <div className="flex flex-col bg-dark-layer-1 relative overflow-x-hidden">
       <PreferenceNav />
       <Split className="h-[calc(100vh-94px)]" direction="vertical" sizes={[60, 40]} minSize={60}>
         <div className="w-full overflow-auto">
-          <CodeMirror value={boilerPlate} theme={vscodeDark} extensions={[javascript()]} style={{ fontSize: 16 }} />
+          <CodeMirror
+            value={boilerPlate}
+            theme={vscodeDark}
+            extensions={[javascript()]}
+            style={{ fontSize: 16 }}
+          />
         </div>
         <div className="w-full px-5 overflow-auto">
           {/* testcase heading */}
@@ -56,7 +64,7 @@ const Playground: React.FC<PlaygroundProps> = () => {
             </div>
           </div>
 
-          <div className="font-semibold my-4">
+          <div className="font-semibold my-4 pb-11">
             <p className="text-sm font-medium mt-4 text-white">Input:</p>
             <div className="w-full cursor-text rounded-lg border px-3 py-[10px] bg-dark-fill-3 border-transparent text-white mt-2">
               nums: [2,7,11,15], target: 9
