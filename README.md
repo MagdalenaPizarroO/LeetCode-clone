@@ -89,4 +89,11 @@ https://firebase.google.com/docs/firestore/query-data/get-data#get_multiple_docu
                 Inside each document (array position), data>value>mapValue>fields
                     doc.data() retrieves the Data I need.
 Get Data From Firestore: Get a document (for each problem)
+
+Consistency between Collections: Transactions Firestore => update users and problems collections
+https://firebase.google.com/docs/firestore/manage-data/transactions
+
+Update Data from Firestore: Update a document
+https://firebase.google.com/docs/firestore/manage-data/add-data#update-data
+
  -->
