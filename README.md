@@ -96,4 +96,7 @@ https://firebase.google.com/docs/firestore/manage-data/transactions
 Update Data from Firestore: Update a document
 https://firebase.google.com/docs/firestore/manage-data/add-data#update-data
 
+
+React-confetti: npm i react-confetti
+    
  -->
