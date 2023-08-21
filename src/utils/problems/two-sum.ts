@@ -1,5 +1,5 @@
 import assert from "assert";
-import { Problem } from "../types/problem";
+import { LocalProblem } from "../types/problem";
 
 const starterCodeTwoSumJS = `function twoSum(nums,target){
     // Write your code here
@@ -35,7 +35,7 @@ const handlerTwoSum = (fn: any) => {
   }
 };
 
-export const twoSum: Problem = {
+export const twoSum: LocalProblem = {
   id: "two-sum",
   title: "1. Two Sum",
   problemStatement: `<p class='mt-3'>

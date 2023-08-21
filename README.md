@@ -98,5 +98,12 @@ https://firebase.google.com/docs/firestore/manage-data/add-data#update-data
 
 
 React-confetti: npm i react-confetti
-    
+
+
+!!IMPORTANT: Sandboxing
+To avoid malicious code submitted, we should implement a Code Execution Engine that evaluates the code; is hard to implement 🥲
+
+
+Deployment: vercel
+Environment Variables: add variables from .env.local
  -->
