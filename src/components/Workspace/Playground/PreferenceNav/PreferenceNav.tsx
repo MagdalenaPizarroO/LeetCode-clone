@@ -1,9 +1,40 @@
-import React from "react";
-import { AiOutlineFullscreen, AiOutlineSetting } from "react-icons/ai";
+import React, { useEffect, useState } from "react";
+import { AiOutlineFullscreen, AiOutlineFullscreenExit, AiOutlineSetting } from "react-icons/ai";
+import { ISettings } from "../Playground";
+import SettingsModal from "@/components/Modals/SettingsModal";
 
-type PreferenceNavProps = {};
+type PreferenceNavProps = {
+  settings: ISettings;
+  setSettings: React.Dispatch<React.SetStateAction<ISettings>>;
+};
 
-const PreferenceNav: React.FC<PreferenceNavProps> = () => {
+const PreferenceNav: React.FC<PreferenceNavProps> = ({ setSettings, settings }) => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const handleFullScreen = () => {
+    if (isFullScreen) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+    setIsFullScreen(!setIsFullScreen);
+  };
+
+  useEffect(() => {
+    function exitHandler(e: any) {
+      if (!document.fullscreenElement) {
+        setIsFullScreen(false);
+        return;
+      }
+      setIsFullScreen(true);
+    }
+    if (document.addEventListener) {
+      document.addEventListener("fullscreenchange", exitHandler);
+      document.addEventListener("webkitfullscreenchange", exitHandler); //navegadores basados en motor WebKit como Safari; también Google Chrome (motor Blink)
+      document.addEventListener("mozfullscreenchange", exitHandler); //motor Gecko como Firefox
+      document.addEventListener("MSFullscreenChange", exitHandler); //navegadores de Microsoft (internet explorer, microsoft edge)
+    }
+  }, [isFullScreen]);
+
   return (
     <div className="flex items-center justify-between bg-dark-layer-2 h-11 w-full">
       <div className="flex items-center text-white" id="left-container; language">
@@ -15,20 +46,21 @@ const PreferenceNav: React.FC<PreferenceNavProps> = () => {
       </div>
 
       <div className="flex items-center m-2" id="right-container">
-        <button className="preferenceBtn group">
+        <button className="preferenceBtn group" onClick={() => setSettings({ ...settings, settingsModalIsOpen: true })}>
           <div className="h-4 w-4 text-dark-gray-6 font-bold text-lg">
             <AiOutlineSetting />
           </div>
           <div className="preferenceBtn-tooltip">Settings</div>
         </button>
 
-        <button className="preferenceBtn group">
+        <button className="preferenceBtn group" onClick={handleFullScreen}>
           <div className="h-4 w-4 text-dark-gray-6 font-bold text-lg">
-            <AiOutlineFullscreen />
+            {!isFullScreen ? <AiOutlineFullscreen /> : <AiOutlineFullscreenExit />}
           </div>
           <div className="preferenceBtn-tooltip">Full Screen</div>
         </button>
       </div>
+      {settings.settingsModalIsOpen && <SettingsModal settings={settings} setSettings={setSettings} />}
     </div>
   );
 };
