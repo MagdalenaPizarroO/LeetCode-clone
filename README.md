@@ -106,4 +106,8 @@ To avoid malicious code submitted, we should implement a Code Execution Engine t
 
 Deployment: vercel
 Environment Variables: add variables from .env.local
+
+TODO:
+Profile page?: problems solved, likes, dislikes, comments, etc :)
+
  -->
